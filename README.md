@@ -1,4 +1,4 @@
-# finchemsha
+# Chemusha
 
 installation:
 
