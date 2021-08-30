@@ -48,8 +48,8 @@ module.exports = function (/* ctx */) {
 	  build: {
 		vueRouterMode: 'hash', // available values: 'hash', 'history'
 		env: {
-			API_URL: 'http://localhost:8060/',
-			API_PATH: 'http://appi.singlepay.co.ke/api/'
+			API_URL: 'https://singlepay.co.ke/triv/appi/public/',
+			API_PATH: 'https://singlepay.co.ke/triv/appi/public/api/'
 		},
 		// transpile: false,
   

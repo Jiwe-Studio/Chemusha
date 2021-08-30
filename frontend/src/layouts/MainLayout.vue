@@ -1,17 +1,18 @@
 <template>
     <q-layout view="hHr LpR lfr">
         <template v-if="$isLoggedIn">
-            <q-header  style="border-bottom-left-radius:20px; border-bottom-right-radius:20px;">
+            <q-header elevated >
                 <q-toolbar class="  ">
                     <q-btn flat @click="toggleLeftDrawer" round dense icon="las la-bars"></q-btn>
-               
-                        
-                           <q-icon class="text-white" name="las la-graduation-cap" size="xl"></q-icon>
-                      
-                        
-              
-                    <p class="q-pl-lg text-bold text-white text-capitalize text-no-wrap text-center" style="font-size:20px;">chemsha bongo</p>
-
+                    <q-btn no-caps flat stretch to="/home" class="q-mr-lg">
+                        <q-avatar size="36">
+                            <img src="~assets/images/logo.png" alt="logo" class="my-5" />
+                        </q-avatar>
+                        <q-toolbar-title>
+                        jiwetvia
+                        </q-toolbar-title>
+                    </q-btn>
+                    <q-separator inset dark vertical></q-separator>
                     <template v-for="(menu, index) in navbarTopLeftItems">
                         <q-btn no-caps :icon="menu.icon" stretch flat :label="menu.label" :to="menu.path" v-if="!menu.submenu.length" :key="`topleftmenubtn-${index}`"></q-btn>
                         <q-btn-dropdown  no-caps :icon="menu.icon" stretch flat :label="menu.label" v-else  :key="`topleftmenudrop-${index}`" >
@@ -138,6 +139,10 @@
                 </q-toolbar>
             </q-header>
         </template>
+        <q-drawer :no-swipe-open="!componentFile" side="right" v-model="rightDrawer" :width="rightDrawerWidth" :breakpoint="500"   >
+            <component v-if="rightDrawer" :is="componentFile" :api-path="pageUrl"></component>
+            <q-btn style="position:absolute;top:10px;right:10px" unelevated dense round color="negative" icon="las la-times-circle" v-show="rightDrawer" @click="rightDrawer = !rightDrawer"></q-btn>
+        </q-drawer>
         <q-dialog v-model="pageDialog">
             <q-card style="width: 700px; max-width: 95vw;">
                 <component v-if="pageDialog" :is="componentFile" :api-path="pageUrl" :model-bind="modelBind"></component>

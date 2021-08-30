@@ -9,7 +9,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-12 comp-grid">
-                                <q-card bordered  flat  class="q-pa-md q-mt-lg shadow-1">
+                                <q-card bordered  flat  class="q-pa-md q-mt-lg inset-shadow shadow-1">
                                     <div>
                                         <div class="text-h5 text-bold q-mb-lg">User Login</div>
                                         <ValidationObserver ref="observer" v-slot="{ invalid }" tag="form" @submit.prevent="startLogin()" @reset="resetForm">
